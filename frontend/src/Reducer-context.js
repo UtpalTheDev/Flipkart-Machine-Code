@@ -50,7 +50,7 @@ import {
 
         case "SORT":
             return {...state,sortBy:action.payload}
-        case "IDEAl":
+        case "IDEAL":
             if (state.showIdealFor.includes(action.payload)) {
                 return {
                   ...state,
@@ -80,19 +80,18 @@ import {
                 };
               }      
         case "SIZE":
-            if (state.showBrand.includes(action.payload)) {
-                console.log("if")
+            if (state.showSize.includes(action.payload)) {
                 return {
                   ...state,
-                  showBrand: state.showBrand.filter(
+                  showSize: state.showSize.filter(
                     (item) => item !== action.payload
                   )
                 };
               } else {
-                  console.log("else",action.payload)
+
                 return {
                   ...state,
-                  showBrand: [...state.showBrand, action.payload]
+                  showSize: [...state.showSize,action.payload]
                 };
               }
         default:

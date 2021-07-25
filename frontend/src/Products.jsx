@@ -7,7 +7,6 @@ const {
     showIdealFor,
     showSize,
     showBrand,dispatch}=useReduce();
-     console.log("meeeeeee",showSize)
 
     function getSortedData(dataList,sortBy){
         if(sortBy==="PRICE_HIGH_TO_LOW")
@@ -39,9 +38,6 @@ const {
         showSize,
         showBrand,  
     })
-
-
-
 
 
     return(
