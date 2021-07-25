@@ -26,7 +26,6 @@ import {
               showSize:[]
             }
         )
-        console.log("meeee",sortBy)
         return(
             <ReducerContext.Provider value={{
                 sortBy,
@@ -50,6 +49,14 @@ import {
 
         case "SORT":
             return {...state,sortBy:action.payload}
+            
+        case "FILTER_RESET":
+          return{...state,             
+            sortBy:null,
+            showIdealFor:[],
+            showBrand:[],
+            showSize:[]}  
+
         case "IDEAL":
             if (state.showIdealFor.includes(action.payload)) {
                 return {

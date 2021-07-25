@@ -5,10 +5,15 @@ import Sort from "./Sort"
 import Filter from "./Filter"
 function App() {
   return (
-    <div className="App">
+    <div className="App flex">
+     <div className="w-48 position-sticky top-0 h-screen">
+       <Sort/>
+       <Filter/>
+     </div>
+     <div className="flex-grow">
      <Products/>
-     <Sort/>
-     <Filter/>
+     </div>
+     
     </div>
   );
 }

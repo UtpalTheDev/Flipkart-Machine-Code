@@ -1,7 +1,8 @@
-import Data from "./Data";
+import JsonData from "./Data.json";
 import ProductCard from "./ProductCard"
 import { useReduce } from "./Reducer-context";
 export default function Products(){
+const Data=JsonData.products
 const {
     sortBy,
     showIdealFor,
@@ -43,12 +44,13 @@ const {
     return(
         <div className="flex flex-wrap justify-center">
             {
-                filteredList.map(item=>{
+               filteredList.length>0 ? filteredList.map(item=>{
                     return(
                         <ProductCard key={item.id} product={item} />
                         
                     )
                 })
+                :" No Data Present"
             }
             
         </div>
