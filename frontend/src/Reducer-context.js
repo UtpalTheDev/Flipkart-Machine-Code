@@ -14,7 +14,9 @@ import {
               sortBy,
               showIdealFor,
               showSize,
-              showBrand
+              showBrand,
+              cart,
+              saveLater
             },
             dispatch
         ]=useReducer(
@@ -23,7 +25,9 @@ import {
               sortBy:null,
               showIdealFor:[],
               showBrand:[],
-              showSize:[]
+              showSize:[],
+              cart:[],
+              saveLater:[]
             }
         )
         return(
@@ -32,6 +36,7 @@ import {
                 showIdealFor,
                 showSize,
                 showBrand,
+                cart,saveLater,
                 dispatch}}
                 >
              {children}
@@ -101,6 +106,35 @@ import {
                   showSize: [...state.showSize,action.payload]
                 };
               }
+
+        case "ADD_TO_CART":
+          return{
+            ...state, cart:[...state.cart,action.payload]
+          }
+        case "INCREASE_IN_CART":
+          return{
+            ...state,cart:state.cart.map(item=>{
+              if(item.id===action.payload.id){
+                return {...item,qty:item.qty+1}
+              }
+              return item
+            })
+          }
+        case "DECREASE_IN_CART":
+          if(state.cart.find(item=>{return item.id===action.payload.id}).qty>1){
+            return {
+              ...state,cart:state.cart.map(item=>{
+                if(item.id===action.payload.id){
+                  return {...item,qty:item.qty-1}
+                }
+                return item
+              })
+            }
+          }
+          return {...state,cart:state.cart.filter(item=>item.id!==action.payload.id)}
+
+        case "REMOVE_ITEMS":
+          return {...state,cart:state.cart.filter(item=>item.id!==action.payload.id)}
         default:
             break;
     }
