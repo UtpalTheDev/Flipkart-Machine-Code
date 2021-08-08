@@ -31,24 +31,22 @@ return(
             </div>
             </div>
 
-
             </>
-            
-
+        
         )
     })}
     {
         cart.length>0
         && 
         <div className="fixed bottom-0 right-0 bg-white w-full">
-       Total Price- 
-       {
-         cart.reduce((acc,cur)=>{
-              acc=acc+cur.price*cur.qty
-            return acc
-            },0)
-       } Rs
-    </div>
+            Total Price- 
+            {
+                cart.reduce((acc,cur)=>{
+                    acc=acc+cur.price*cur.qty
+                    return acc
+                    },0)
+            } Rs
+       </div>
 
     }
     

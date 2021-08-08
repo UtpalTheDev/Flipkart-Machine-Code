@@ -1,7 +1,7 @@
 
 import {useReduce} from "../Reducer-context"
 export default function ProductCard({product}){
-    const {dispatch,cart}=useReduce()
+    const {dispatch,cart,saveLater}=useReduce()
     return(
         <div className="w-48 shadow-md bg-white m-2">
             <div className=""><img src={product.image}/></div>
@@ -9,10 +9,12 @@ export default function ProductCard({product}){
             <div className="text-gray-500 text-center text-sm">{product.type}</div>
             <div className="pl-0.5">Rs- {product.price}/-</div>
             <div className="pl-0.5">Size: {product.size}</div>
+
+            <div className="flex w-full flex-col">
             {!cart.find(item=>{return item.id===product.id}) &&
                 <button onClick={()=>
                 dispatch({type:"ADD_TO_CART",payload:{...product,qty:1}})
-            } className="bg-black text-white px-2">Add To Cart</button>
+            } className="bg-black text-white px-2 my-2">Add To Cart</button>
             }
             {cart.find(item=>{return item.id===product.id}) &&
                <div> <button onClick={()=>
@@ -24,6 +26,19 @@ export default function ProductCard({product}){
             } className="bg-black text-white px-2 mx-2">+</button>
             </div>
             }
+            {!saveLater.find(item=>{return item.id===product.id}) &&
+                <button onClick={()=>
+                dispatch({type:"ADD_TO_SAVE",payload:product})
+            } className="bg-black text-white px-2 my-2">Add To Save</button>
+            }
+            {saveLater.find(item=>{return item.id===product.id}) &&
+                <button onClick={()=>
+                dispatch({type:"REMOVE_FROM_SAVE",payload:product})
+            } className="bg-black text-white px-2 my-2">Added To Save</button>
+            }
+            </div>
+            
+            
 
         </div>   
     )

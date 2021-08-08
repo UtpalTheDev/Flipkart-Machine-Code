@@ -135,6 +135,15 @@ import {
 
         case "REMOVE_ITEMS":
           return {...state,cart:state.cart.filter(item=>item.id!==action.payload.id)}
+
+        case "ADD_TO_SAVE":
+          return{
+            ...state, saveLater:[...state.saveLater,action.payload]
+          }  
+        case "REMOVE_FROM_SAVE":
+            return{
+              ...state, saveLater:state.saveLater.filter(item=>item.id!==action.payload.id)
+            }    
         default:
             break;
     }
