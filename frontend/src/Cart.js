@@ -5,7 +5,7 @@ const {cart,dispatch}=useReduce()
 console.log("cart--",cart)
 return(
     <div className="flex flex-wrap justify-center pb-5">
-     {cart.length===0 && "No Items Present"}   
+     {cart.length===0 && "No Items Present in Cart"}   
     {cart.map(item=>{
         return(
             <>
