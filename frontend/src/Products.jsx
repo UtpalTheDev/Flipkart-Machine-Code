@@ -1,14 +1,16 @@
 import JsonData from "./Data.json";
 import ProductCard from "./ProductCard"
 import { useReduce } from "./Reducer-context";
+import Sort from "./Sort"
+import Filter from "./Filter"
 export default function Products(){
 const Data=JsonData.products
 const {
     sortBy,
     showIdealFor,
     showSize,
-    showBrand,dispatch}=useReduce();
-
+    showBrand,dispatch,cart}=useReduce();
+    console.log("cart",cart)
     function getSortedData(dataList,sortBy){
         if(sortBy==="PRICE_HIGH_TO_LOW")
         {
@@ -42,6 +44,12 @@ const {
 
 
     return(
+        <div className="App flex">
+        <div className="w-48 position-sticky top-0 h-screen">
+          <Sort/>
+          <Filter/>
+        </div>
+        <div className="flex-grow">
         <div className="flex flex-wrap justify-center">
             {
                filteredList.length>0 ? filteredList.map(item=>{
@@ -53,6 +61,8 @@ const {
                 :" No Data Present"
             }
             
+        </div>
+        </div>
         </div>
     )
 }

@@ -17,11 +17,11 @@ export default function ProductCard({product}){
             {cart.find(item=>{return item.id===product.id}) &&
                <div> <button onClick={()=>
                 dispatch({type:"DECREASE_IN_CART",payload:product})
-            } className="bg-black text-white px-2">-</button>
+            } className="bg-black text-white px-2 mx-2">-</button>
                {cart.find(item=>{return item.id===product.id}).qty} 
             <button onClick={()=>
                 dispatch({type:"INCREASE_IN_CART",payload:product})
-            } className="bg-black text-white px-2">+</button>
+            } className="bg-black text-white px-2 mx-2">+</button>
             </div>
             }
 
