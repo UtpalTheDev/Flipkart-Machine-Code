@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Products from "./Products";
-import Sort from "./Sort"
-import Filter from "./Filter"
+import Products from "./pages/Products";
+import Sort from "./component/Sort"
+import Filter from "./component/Filter"
 import {Routes,Route,Link} from "react-router-dom";
-import Cart from "./Cart"
+import Cart from "./pages/Cart"
 import {useReduce} from "./Reducer-context"
 function App() {
   const {cart}=useReduce()

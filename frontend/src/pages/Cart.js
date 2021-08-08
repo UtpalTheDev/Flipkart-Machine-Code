@@ -1,4 +1,4 @@
-import {useReduce} from "./Reducer-context"
+import {useReduce} from "../Reducer-context"
 
 export default function Cart(){
 const {cart,dispatch}=useReduce()

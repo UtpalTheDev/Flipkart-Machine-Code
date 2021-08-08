@@ -1,4 +1,4 @@
-import { useReduce } from "./Reducer-context"
+import { useReduce } from "../Reducer-context"
 export default function Filter(){
 const {dispatch,showIdealFor,showBrand,showSize} = useReduce()
 const sizeArr=['S','M',"L",'XL']

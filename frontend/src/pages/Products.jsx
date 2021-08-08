@@ -1,8 +1,8 @@
-import JsonData from "./Data.json";
-import ProductCard from "./ProductCard"
-import { useReduce } from "./Reducer-context";
-import Sort from "./Sort"
-import Filter from "./Filter"
+import JsonData from "../Data.json";
+import ProductCard from "../component/ProductCard"
+import { useReduce } from "../Reducer-context";
+import Sort from "../component/Sort"
+import Filter from "../component/Filter"
 export default function Products(){
 const Data=JsonData.products
 const {

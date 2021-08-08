@@ -1,5 +1,5 @@
 
-import {useReduce} from "./Reducer-context"
+import {useReduce} from "../Reducer-context"
 export default function ProductCard({product}){
     const {dispatch,cart}=useReduce()
     return(

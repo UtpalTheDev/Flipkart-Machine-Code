@@ -1,4 +1,4 @@
-import { useReduce } from "./Reducer-context"
+import { useReduce } from "../Reducer-context"
 export default function Sort(){
 const {dispatch}=useReduce()
     return(
